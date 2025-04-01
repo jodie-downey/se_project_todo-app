@@ -20,12 +20,12 @@ const initialTodos = [
 ];
 
 const validationConfig = {
-  formSelector: ".popup__form",
-  inputSelector: ".popup__input",
-  submitButtonSelector: ".popup__button",
-  errorClass: "popup__error_visible",
-  inputErrorClass: "popup__input_type_error",
-  inactiveButtonClass: "button_disabled",
+  _formSelector: ".popup__form",
+  _inputSelector: ".popup__input",
+  _submitButtonSelector: ".popup__button",
+  _errorClass: "popup__error_visible",
+  _inputErrorClass: "popup__input_type_error",
+  _inactiveButtonClass: "button_disabled",
 };
 
 export { initialTodos, validationConfig };
