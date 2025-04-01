@@ -16,8 +16,13 @@ css was utilized to style and configure.
 
 scripts were used to add more items to the DOM and therefor the page. Scripts were also used to validate entires before adding them to the DOM. A comnbination of private and public methods were used on seperate files to create these effects. See screenshots below.
 
+![alt text](./images/Screenshot%202025-04-01%20at%202.04.00%20PM.png)
+![alt text](./images/Screenshot%202025-04-01%20at%202.04.25%20PM.png)
+![alt text](./images/Screenshot%202025-04-01%20at%202.04.46%20PM.png)
+![alt text](./images/Screenshot%202025-04-01%20at%202.05.03%20PM.png)
+
 ## Deployment
 
 This project is deployed on GitHub Pages:
 
-- ADD LINK HERE
+[GitHub deployment] (https://jodie-downey.github.io/se_project_todo-app/)
