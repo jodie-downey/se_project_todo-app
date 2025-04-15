@@ -1,24 +1,40 @@
 class Popup {
-  constructor(popup) {}
+  constructor({ popupSelector }) {
+    this._popupElement = document.querySelector(popupSelector);
+    this._popupCloseBttn = this._popupElement.querySelector(".popup__close");
+    this._handleEscapeClose = this._handleEscapeClose.bind(this);
+  }
 
-  open() {}
+  open() {
+    this._popupElement.classList.add("popup_visible");
+    document.addEventListener("keyup", this._handleEscapeClose);
+  }
 
-  close() {}
+  close() {
+    this._popupElement.classList.remove("popup_visible");
+    document.removeEventListener("keyup", this._handleEscapeClose);
+  }
 
-  _handleEscapeClose() {}
+  _handleEscapeClose(evt) {
+    if (evt.key === "Escape") {
+      this.close();
+    }
+  }
 
   setEventListeners() {
-    "click", () => {};
+    //this._popupCloseBttn.addEventListener("click", () => {
+    //this.close();
+    //});
+
+    this._popupElement.addEventListener("mousedown", (evt) => {
+      if (
+        evt.target === this._popupElement ||
+        this._popupCloseBttn.contains(evt.target)
+      ) {
+        this.close();
+      }
+    });
   }
 }
-
-class PopupwithForm extends Popup {
-  constructor(popup, callbackfunction) {}
-
-  _getInputValues() {}
-
-  setEventListeners() {}
-}
-
 
 export default Popup;
