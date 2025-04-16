@@ -14,7 +14,15 @@ const todosList = document.querySelector(".todos__list");
 
 const addToDoPopup = new PopupwithForm({
   popupSelector: "#add-todo-popup",
-  handleFormSubmit: () => {},
+  handleFormSubmit: (inputValues) => {
+    const name = inputValues.name;
+    const date = inputValues.date;
+    //inputValues.date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
+    const id = uuidv4();
+    renderTodo(inputValues);
+    newFormValidator.resetValidation();
+    addToDoPopup.close();
+  },
 });
 
 const closeModal = (modal) => {
@@ -33,29 +41,10 @@ addTodoButton.addEventListener("click", () => {
 
 addToDoPopup.setEventListeners();
 
-//addTodoCloseBtn.addEventListener("click", () => {
-//  addToDoPopup.close();
-//});
-
 const renderTodo = (item) => {
   const todo = generateTodo(item);
   section.addItem(todo);
 };
-
-//addTodoForm.addEventListener("submit", (evt) => {
-//  evt.preventDefault();
-//  const name = evt.target.name.value;
-//  const dateInput = evt.target.date.value;
-//
-//  const date = new Date(dateInput);
-//  date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
-//
-//  const id = uuidv4();
-//  const values = { name, date, id };
-//  renderTodo(values);
-//  newFormValidator.resetValidation();
-//  addToDoPopup.close();
-//});
 
 const section = new Section({
   items: initialTodos,
@@ -67,10 +56,6 @@ const section = new Section({
 });
 
 section.renderItems();
-
-//initialTodos.forEach((item) => {
-//  renderTodo(item);
-//});
 
 const newFormValidator = new FormValidator(validationConfig, addTodoForm);
 newFormValidator.enableValidation();

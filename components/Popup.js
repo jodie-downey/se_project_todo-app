@@ -22,10 +22,6 @@ class Popup {
   }
 
   setEventListeners() {
-    //this._popupCloseBttn.addEventListener("click", () => {
-    //this.close();
-    //});
-
     this._popupElement.addEventListener("mousedown", (evt) => {
       if (
         evt.target === this._popupElement ||
