@@ -34,16 +34,13 @@ const addToDoPopup = new PopupwithForm({
   handleFormSubmit: (inputValues) => {
     const name = inputValues.name;
     const date = inputValues.date;
-    const id = uuidv4();
+    inputValues.id = uuidv4();
     renderTodo(inputValues);
     newFormValidator.resetValidation();
     addToDoPopup.close();
+    handleTotal(true);
   },
 });
-
-const closeModal = (modal) => {
-  modal.classList.remove("popup_visible");
-};
 
 const generateTodo = (data) => {
   const todo = new toDo(
@@ -66,14 +63,13 @@ addToDoPopup.setEventListeners();
 const renderTodo = (item) => {
   const todo = generateTodo(item);
   section.addItem(todo);
-  handleTotal(true);
 };
 
 const section = new Section({
   items: initialTodos,
   renderer: (item) => {
-    const toDo = generateTodo(item);
-    section.addItem(toDo);
+    renderTodo(item);
+    //section.addItem();
   },
   containerSelector: ".todos__list",
 });
